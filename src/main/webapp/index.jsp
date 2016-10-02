@@ -9,5 +9,8 @@
 
 <h2>JSON</h2>
 <a href='data/json/print-something'>data/json/printSomething</a><br>
+
+<h2>Custom</h2>
+<a href='data/custom/print-something'>data/custom/printSomething</a><br>
 </body>
 </html>
