@@ -12,5 +12,9 @@
 
 <h2>Custom</h2>
 <a href='data/custom/print-something'>data/custom/printSomething</a><br>
+
+<h2>Security</h2>
+<a href='data/string/secured-method'>data/secured-method</a><br>
+
 </body>
 </html>

@@ -1,8 +1,11 @@
 import uk.co.praguematica.smservlet.SelfMappedServlet;
+import uk.co.praguematica.smservlet.UserContext;
 import uk.co.praguematica.urlmapping.MappingProcessorException;
 import uk.co.praguematica.urlmapping.annotations.Attribute;
 import uk.co.praguematica.urlmapping.annotations.PathVariable;
 import uk.co.praguematica.urlmapping.annotations.RequestMapping;
+import uk.co.praguematica.urlmapping.annotations.SelfMapped;
+import uk.co.praguematica.urlmapping.handlers.AnonymousSecurityHandler;
 import uk.co.praguematica.urlmapping.serializers.Format;
 
 import javax.servlet.ServletException;
@@ -38,6 +41,12 @@ public class ExampleServlet extends SelfMappedServlet {
     public String getSomething(@Attribute("var2") String var2) {
         return "Get " + var2;
     }
+
+    @RequestMapping(value="data/string/secured-method", securityHandler=ExampleSecurityHandler.class)
+    public String securedMethod(UserContext userContext) {
+        return "This method has been secured. Logged in user: " + userContext.getUserId();
+    }
+
 
     @RequestMapping(value="data/json/print-something", responseFormat = Format.JSON)
     public Object printJson() {
