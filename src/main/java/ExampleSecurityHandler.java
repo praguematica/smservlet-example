@@ -15,7 +15,9 @@ public class ExampleSecurityHandler implements SecurityHandler {
 
     @Override
     public UserContext getUserContext(HttpServletRequest httpServletRequest) {
-        UserContext userContext = new UserContext(httpServletRequest.getParameter("userId"), (String)httpServletRequest.getParameter("userName"));
+        UserContext userContext = new UserContext();
+        userContext.setUserId(httpServletRequest.getParameter("userId"));
+        userContext.setUserName(httpServletRequest.getParameter("userName"));
         return userContext;
     }
 }
